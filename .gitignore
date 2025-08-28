@@ -1,0 +1,13 @@
+# dependencies
+/node_modules
+.pnp
+.pnp.js
+
+# next
+.next
+out
+.next.static
+
+# misc
+.DS_Store
+.env*
