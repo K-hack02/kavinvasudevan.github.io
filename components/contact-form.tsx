@@ -65,14 +65,14 @@ export function ContactForm() {
   if (error) {
     return (
       <div className="max-w-2xl mx-auto">
-        <div className="p-8 rounded-2xl bg-card/20 dark:bg-card/80 backdrop-blur-sm border border-border/20 dark:border-border/40">
-          <div className="text-center py-6">
-            <div className="mx-auto flex items-center justify-center w-16 h-16 rounded-full bg-destructive/10 mb-6">
-              <AlertCircle className="h-8 w-8 text-destructive" />
+        <div className="p-4 sm:p-8 rounded-2xl bg-card/20 dark:bg-card/80 backdrop-blur-sm border border-border/20 dark:border-border/40">
+          <div className="text-center py-4 sm:py-6">
+            <div className="mx-auto flex items-center justify-center w-12 h-12 sm:w-16 sm:h-16 rounded-full bg-destructive/10 mb-4 sm:mb-6">
+              <AlertCircle className="h-6 w-6 sm:h-8 sm:w-8 text-destructive" />
             </div>
-            <h3 className="text-xl font-semibold text-foreground mb-3">Message Failed</h3>
-            <p className="text-foreground/70 text-lg mb-4">{error}</p>
-            <Button onClick={() => setError(null)} variant="outline">
+            <h3 className="text-lg sm:text-xl font-semibold text-foreground mb-2 sm:mb-3">Message Failed</h3>
+            <p className="text-foreground/70 text-base sm:text-lg mb-4">{error}</p>
+            <Button onClick={() => setError(null)} variant="outline" className="min-h-[44px]">
               Try Again
             </Button>
           </div>
@@ -84,13 +84,13 @@ export function ContactForm() {
   if (isSubmitted) {
     return (
       <div className="max-w-2xl mx-auto">
-        <div className="p-8 rounded-2xl bg-card/20 dark:bg-card/80 backdrop-blur-sm border border-border/20 dark:border-border/40">
-          <div className="text-center py-6">
-            <div className="mx-auto flex items-center justify-center w-16 h-16 rounded-full bg-primary/10 mb-6">
-              <CheckCircle className="h-8 w-8 text-primary" />
+        <div className="p-4 sm:p-8 rounded-2xl bg-card/20 dark:bg-card/80 backdrop-blur-sm border border-border/20 dark:border-border/40">
+          <div className="text-center py-4 sm:py-6">
+            <div className="mx-auto flex items-center justify-center w-12 h-12 sm:w-16 sm:h-16 rounded-full bg-primary/10 mb-4 sm:mb-6">
+              <CheckCircle className="h-6 w-6 sm:h-8 sm:w-8 text-primary" />
             </div>
-            <h3 className="text-xl font-semibold text-foreground mb-3">Message Sent!</h3>
-            <p className="text-foreground/70 text-lg">
+            <h3 className="text-lg sm:text-xl font-semibold text-foreground mb-2 sm:mb-3">Message Sent!</h3>
+            <p className="text-foreground/70 text-base sm:text-lg">
               Thank you for reaching out. I'll get back to you as soon as possible.
             </p>
           </div>
@@ -103,10 +103,10 @@ export function ContactForm() {
     <div className="max-w-2xl mx-auto">
       <form
         onSubmit={handleSubmit}
-        className="space-y-6 p-8 rounded-2xl bg-card/20 dark:bg-card/80 backdrop-blur-sm border border-border/20 dark:border-border/40"
+        className="space-y-4 sm:space-y-6 p-4 sm:p-8 rounded-2xl bg-card/20 dark:bg-card/80 backdrop-blur-sm border border-border/20 dark:border-border/40"
       >
         <div className="space-y-2">
-          <Label htmlFor="name" className="text-primary font-medium">
+          <Label htmlFor="name" className="text-primary font-medium text-sm sm:text-base">
             Name
           </Label>
           <Input
@@ -117,12 +117,12 @@ export function ContactForm() {
             value={formData.name}
             onChange={handleChange}
             required
-            className="bg-background dark:bg-background/95 border-border/30 text-foreground placeholder:text-muted-foreground focus:border-primary/50 transition-colors"
+            className="bg-background dark:bg-background/95 border-border/30 text-foreground placeholder:text-muted-foreground focus:border-primary/50 transition-colors min-h-[44px] text-base"
           />
         </div>
 
         <div className="space-y-2">
-          <Label htmlFor="email" className="text-primary font-medium">
+          <Label htmlFor="email" className="text-primary font-medium text-sm sm:text-base">
             Email
           </Label>
           <Input
@@ -133,12 +133,12 @@ export function ContactForm() {
             value={formData.email}
             onChange={handleChange}
             required
-            className="bg-background dark:bg-background/95 border-border/30 text-foreground placeholder:text-muted-foreground focus:border-primary/50 transition-colors"
+            className="bg-background dark:bg-background/95 border-border/30 text-foreground placeholder:text-muted-foreground focus:border-primary/50 transition-colors min-h-[44px] text-base"
           />
         </div>
 
         <div className="space-y-2">
-          <Label htmlFor="message" className="text-primary font-medium">
+          <Label htmlFor="message" className="text-primary font-medium text-sm sm:text-base">
             Message
           </Label>
           <Textarea
@@ -148,8 +148,8 @@ export function ContactForm() {
             value={formData.message}
             onChange={handleChange}
             required
-            rows={6}
-            className="bg-background dark:bg-background/95 border-border/30 text-foreground placeholder:text-muted-foreground focus:border-primary/50 transition-colors resize-none"
+            rows={5}
+            className="bg-background dark:bg-background/95 border-border/30 text-foreground placeholder:text-muted-foreground focus:border-primary/50 transition-colors resize-none text-base min-h-[120px]"
           />
         </div>
 
@@ -157,7 +157,7 @@ export function ContactForm() {
           type="submit"
           size="lg"
           disabled={isLoading}
-          className="w-full bg-gradient-to-r from-primary to-accent hover:from-primary/90 hover:to-accent/90 text-primary-foreground font-medium py-4 rounded-xl transition-all duration-200 shadow-lg hover:shadow-xl disabled:opacity-50"
+          className="w-full bg-gradient-to-r from-primary to-accent hover:from-primary/90 hover:to-accent/90 text-primary-foreground font-medium py-3 sm:py-4 rounded-xl transition-all duration-200 shadow-lg hover:shadow-xl disabled:opacity-50 min-h-[48px] text-base"
         >
           {isLoading ? (
             <>

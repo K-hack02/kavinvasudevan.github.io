@@ -3,6 +3,9 @@
 import { useState, useEffect } from "react"
 import { ThemeToggle } from "./theme-toggle"
 import { Button } from "@/components/ui/button"
+import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from "@/components/ui/sheet"
+import { Menu } from "lucide-react"
+import { useIsMobile } from "@/hooks/use-mobile"
 
 const navItems = [
   { name: "About", href: "#about" },
@@ -15,6 +18,8 @@ const navItems = [
 
 export function Navigation() {
   const [activeSection, setActiveSection] = useState("about")
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+  const isMobile = useIsMobile()
 
   useEffect(() => {
     let ticking = false
@@ -65,13 +70,14 @@ export function Navigation() {
         behavior: "smooth",
       })
     }
+    setMobileMenuOpen(false)
   }
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-md border-b border-border">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
-          <div className="flex items-center space-x-6">
+          <div className="hidden md:flex items-center space-x-6">
             <button
               onClick={() => scrollToSection("#about")}
               className="text-base font-semibold text-primary hover:text-primary/80 transition-colors"
@@ -83,16 +89,54 @@ export function Navigation() {
                 key={item.name}
                 variant="ghost"
                 onClick={() => scrollToSection(item.href)}
-                className={`text-sm font-medium transition-colors ${
-                  activeSection === item.href.slice(1) ? "text-primary" : "text-muted-foreground hover:text-foreground"
-                }`}
+                className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
               >
                 {item.name}
               </Button>
             ))}
           </div>
 
-          <ThemeToggle />
+          <div className="flex md:hidden items-center space-x-4 flex-1">
+            <button
+              onClick={() => scrollToSection("#about")}
+              className="text-base font-semibold text-primary hover:text-primary/80 transition-colors"
+            >
+              Kavin Vasudevan
+            </button>
+          </div>
+
+          <div className="flex items-center space-x-2">
+            <Sheet open={mobileMenuOpen} onOpenChange={setMobileMenuOpen}>
+              <SheetTrigger asChild>
+                <Button variant="ghost" size="icon" className="md:hidden h-10 w-10" aria-label="Open navigation menu">
+                  <Menu className="h-5 w-5" />
+                </Button>
+              </SheetTrigger>
+              <SheetContent side="right" className="w-[280px] sm:w-[350px]">
+                <SheetHeader>
+                  <SheetTitle className="text-left">Navigation</SheetTitle>
+                </SheetHeader>
+                <div className="flex flex-col space-y-4 mt-8">
+                  {navItems.map((item) => (
+                    <Button
+                      key={item.name}
+                      variant="ghost"
+                      onClick={() => scrollToSection(item.href)}
+                      className={`justify-start text-lg h-12 ${
+                        activeSection === item.href.slice(1)
+                          ? "text-primary bg-primary/10"
+                          : "text-muted-foreground hover:text-foreground"
+                      }`}
+                    >
+                      {item.name}
+                    </Button>
+                  ))}
+                </div>
+              </SheetContent>
+            </Sheet>
+
+            <ThemeToggle />
+          </div>
         </div>
       </div>
     </nav>

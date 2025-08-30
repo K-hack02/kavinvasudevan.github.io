@@ -185,24 +185,24 @@ export default function Home() {
       {/* Hero Section */}
       <section id="about" className="min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8">
         <div className="max-w-5xl mx-auto text-center">
-          <h1 className="font-playfair text-5xl md:text-7xl font-bold mb-6 text-balance text-foreground drop-shadow-lg">
+          <h1 className="font-playfair text-4xl sm:text-5xl md:text-7xl font-bold mb-6 text-balance text-foreground drop-shadow-lg">
             Kavin Vasudevan
           </h1>
-          <p className="text-xl md:text-2xl text-foreground/90 mb-8 text-pretty drop-shadow-md">
+          <p className="text-lg sm:text-xl md:text-2xl text-foreground/90 mb-8 text-pretty drop-shadow-md">
             Software Engineer | Embedded Software Engineer
           </p>
 
-          <div className="flex justify-center gap-4 mb-8">
+          <div className="flex justify-center gap-3 sm:gap-4 mb-8">
             <a
               href="https://linkedin.com/in/kavin-vasudevan"
               target="_blank"
               rel="noopener noreferrer"
               className="block"
             >
-              <Card className="border-border/20 hover:border-border/40 transition-colors w-28 cursor-pointer hover:scale-105 transition-transform">
+              <Card className="border-border/20 hover:border-border/40 transition-colors w-24 sm:w-28 cursor-pointer hover:scale-105 transition-transform">
                 <CardContent className="pt-3 pb-3">
                   <div className="flex flex-col items-center text-center">
-                    <Linkedin className="h-5 w-5 text-primary mb-1 drop-shadow-sm" />
+                    <Linkedin className="h-4 w-4 sm:h-5 sm:w-5 text-primary mb-1 drop-shadow-sm" />
                     <h3 className="font-semibold text-xs text-foreground drop-shadow-sm">LinkedIn</h3>
                   </div>
                 </CardContent>
@@ -210,10 +210,10 @@ export default function Home() {
             </a>
 
             <a href="https://github.com/k-hack02" target="_blank" rel="noopener noreferrer" className="block">
-              <Card className="border-border/20 hover:border-border/40 transition-colors w-28 cursor-pointer hover:scale-105 transition-transform">
+              <Card className="border-border/20 hover:border-border/40 transition-colors w-24 sm:w-28 cursor-pointer hover:scale-105 transition-transform">
                 <CardContent className="pt-3 pb-3">
                   <div className="flex flex-col items-center text-center">
-                    <Github className="h-5 w-5 text-primary mb-1 drop-shadow-sm" />
+                    <Github className="h-4 w-4 sm:h-5 sm:w-5 text-primary mb-1 drop-shadow-sm" />
                     <h3 className="font-semibold text-xs text-foreground drop-shadow-sm">GitHub</h3>
                   </div>
                 </CardContent>
@@ -224,23 +224,23 @@ export default function Home() {
       </section>
 
       {/* Education Section */}
-      <section id="education" className="py-12 px-4 sm:px-6 lg:px-8">
+      <section id="education" className="py-8 sm:py-12 px-4 sm:px-6 lg:px-8">
         <div className="max-w-5xl mx-auto">
-          <h2 className="font-playfair text-4xl font-bold text-center mb-16 text-foreground drop-shadow-lg">
+          <h2 className="font-playfair text-3xl sm:text-4xl font-bold text-center mb-12 sm:mb-16 text-foreground drop-shadow-lg">
             Education
           </h2>
           <Card className="border-border/20">
-            <CardHeader>
-              <div className="flex items-start justify-between">
-                <div>
-                  <CardTitle className="text-2xl font-playfair text-foreground drop-shadow-md">
+            <CardHeader className="pb-4 sm:pb-6">
+              <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-4">
+                <div className="flex-1">
+                  <CardTitle className="text-xl sm:text-2xl font-playfair text-foreground drop-shadow-md">
                     University of California, Berkeley
                   </CardTitle>
-                  <CardDescription className="text-lg mt-2 text-foreground/80 drop-shadow-sm">
+                  <CardDescription className="text-base sm:text-lg mt-2 text-foreground/80 drop-shadow-sm">
                     Double Major: Bachelor of Arts in Computer Science and Data Science
                   </CardDescription>
                 </div>
-                <div className="text-right">
+                <div className="text-left sm:text-right">
                   <div className="flex items-center text-foreground/70 mb-2 drop-shadow-sm">
                     <Calendar className="h-4 w-4 mr-2" />
                     May 2025
@@ -253,23 +253,25 @@ export default function Home() {
       </section>
 
       {/* Experience Section */}
-      <section id="experience" className="py-12 px-4 sm:px-6 lg:px-8">
+      <section id="experience" className="py-8 sm:py-12 px-4 sm:px-6 lg:px-8">
         <div className="max-w-5xl mx-auto">
-          <h2 className="font-playfair text-4xl font-bold text-center mb-16 text-foreground drop-shadow-lg">
+          <h2 className="font-playfair text-3xl sm:text-4xl font-bold text-center mb-12 sm:mb-16 text-foreground drop-shadow-lg">
             Professional Experience
           </h2>
-          <div className="space-y-8">
+          <div className="space-y-6 sm:space-y-8">
             {/* Amazon */}
             <Card className="border-border/20">
-              <CardHeader>
-                <div className="flex items-start justify-between">
-                  <div>
-                    <CardTitle className="text-xl font-playfair text-foreground drop-shadow-md">Amazon</CardTitle>
-                    <CardDescription className="text-lg mt-1 text-foreground/80 drop-shadow-sm">
+              <CardHeader className="pb-4 sm:pb-6">
+                <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-4">
+                  <div className="flex-1">
+                    <CardTitle className="text-lg sm:text-xl font-playfair text-foreground drop-shadow-md">
+                      Amazon
+                    </CardTitle>
+                    <CardDescription className="text-base sm:text-lg mt-1 text-foreground/80 drop-shadow-sm">
                       Software Development Engineer Intern
                     </CardDescription>
                   </div>
-                  <div className="text-right">
+                  <div className="text-left sm:text-right">
                     <div className="flex items-center text-foreground/70 drop-shadow-sm">
                       <Calendar className="h-4 w-4 mr-2" />
                       June 2024 – September 2024
@@ -295,17 +297,17 @@ export default function Home() {
 
             {/* Berkeley Formula SAE */}
             <Card className="border-border/20">
-              <CardHeader>
-                <div className="flex items-start justify-between">
-                  <div>
-                    <CardTitle className="text-xl font-playfair text-foreground drop-shadow-md">
+              <CardHeader className="pb-4 sm:pb-6">
+                <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-4">
+                  <div className="flex-1">
+                    <CardTitle className="text-lg sm:text-xl font-playfair text-foreground drop-shadow-md">
                       Formula SAE Electric at Berkeley
                     </CardTitle>
-                    <CardDescription className="text-lg mt-1 text-foreground/80 drop-shadow-sm">
+                    <CardDescription className="text-base sm:text-lg mt-1 text-foreground/80 drop-shadow-sm">
                       Lead Firmware Engineer
                     </CardDescription>
                   </div>
-                  <div className="text-right">
+                  <div className="text-left sm:text-right">
                     <div className="flex items-center text-foreground/70 drop-shadow-sm">
                       <Calendar className="h-4 w-4 mr-2" />
                       March 2023 – July 2025
@@ -333,17 +335,17 @@ export default function Home() {
 
             {/* KeepFlying.aero */}
             <Card className="border-border/20">
-              <CardHeader>
-                <div className="flex items-start justify-between">
-                  <div>
-                    <CardTitle className="text-xl font-playfair text-foreground drop-shadow-md">
+              <CardHeader className="pb-4 sm:pb-6">
+                <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-4">
+                  <div className="flex-1">
+                    <CardTitle className="text-lg sm:text-xl font-playfair text-foreground drop-shadow-md">
                       KeepFlying.aero
                     </CardTitle>
-                    <CardDescription className="text-lg mt-1 text-foreground/80 drop-shadow-sm">
+                    <CardDescription className="text-base sm:text-lg mt-1 text-foreground/80 drop-shadow-sm">
                       Machine Learning Engineer Intern
                     </CardDescription>
                   </div>
-                  <div className="text-right">
+                  <div className="text-left sm:text-right">
                     <div className="flex items-center text-foreground/70 drop-shadow-sm">
                       <Calendar className="h-4 w-4 mr-2" />
                       August 2023 – December 2023
@@ -371,17 +373,17 @@ export default function Home() {
 
             {/* The Coder School */}
             <Card className="border-border/20">
-              <CardHeader>
-                <div className="flex items-start justify-between">
-                  <div>
-                    <CardTitle className="text-xl font-playfair text-foreground drop-shadow-md">
+              <CardHeader className="pb-4 sm:pb-6">
+                <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-4">
+                  <div className="flex-1">
+                    <CardTitle className="text-lg sm:text-xl font-playfair text-foreground drop-shadow-md">
                       The Coder School Berkeley
                     </CardTitle>
-                    <CardDescription className="text-lg mt-1 text-foreground/80 drop-shadow-sm">
+                    <CardDescription className="text-base sm:text-lg mt-1 text-foreground/80 drop-shadow-sm">
                       Computer Science Tutor
                     </CardDescription>
                   </div>
-                  <div className="text-right">
+                  <div className="text-left sm:text-right">
                     <div className="flex items-center text-foreground/70 drop-shadow-sm">
                       <Calendar className="h-4 w-4 mr-2" />
                       January 2022 – May 2023
@@ -392,7 +394,7 @@ export default function Home() {
               <CardContent>
                 <ul className="space-y-3 text-foreground/80 drop-shadow-sm">
                   <li className="ml-6 relative before:content-['•'] before:absolute before:-ml-6 before:text-foreground/80">
-                    Guided middle and high school students in web development, scripting, and block-based programming through
+                    Guided middle and high school students in web, scripting, and block-based programming through
                     personalized projects
                   </li>
                   <li className="ml-6 relative before:content-['•'] before:absolute before:-ml-6 before:text-foreground/80">
@@ -409,12 +411,12 @@ export default function Home() {
       </section>
 
       {/* Projects Section */}
-      <section id="projects" className="py-12 px-4 sm:px-6 lg:px-8">
+      <section id="projects" className="py-8 sm:py-12 px-4 sm:px-6 lg:px-8">
         <div className="max-w-5xl mx-auto">
-          <h2 className="font-playfair text-4xl font-bold text-center mb-16 text-foreground drop-shadow-lg">
+          <h2 className="font-playfair text-3xl sm:text-4xl font-bold text-center mb-12 sm:mb-16 text-foreground drop-shadow-lg">
             Projects
           </h2>
-          <div className="grid md:grid-cols-2 gap-8">
+          <div className="grid gap-6 sm:gap-8 md:grid-cols-2">
             {projects.map((project) => {
               const IconComponent = project.icon
               return (
@@ -464,10 +466,12 @@ export default function Home() {
       </section>
 
       {/* Skills Section */}
-      <section id="skills" className="py-12 px-4 sm:px-6 lg:px-8">
+      <section id="skills" className="py-8 sm:py-12 px-4 sm:px-6 lg:px-8">
         <div className="max-w-5xl mx-auto">
-          <h2 className="font-playfair text-4xl font-bold text-center mb-16 text-foreground drop-shadow-lg">Skills</h2>
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <h2 className="font-playfair text-3xl sm:text-4xl font-bold text-center mb-12 sm:mb-16 text-foreground drop-shadow-lg">
+            Skills
+          </h2>
+          <div className="grid gap-6 sm:gap-8 md:grid-cols-2 lg:grid-cols-4">
             <Card className="border-border/20">
               <CardHeader>
                 <CardTitle className="flex items-center gap-2 text-foreground drop-shadow-md">
@@ -571,16 +575,18 @@ export default function Home() {
       </section>
 
       {/* Contact Section */}
-      <section id="contact" className="py-12 px-4 sm:px-6 lg:px-8">
+      <section id="contact" className="py-8 sm:py-12 px-4 sm:px-6 lg:px-8">
         <div className="max-w-5xl mx-auto text-center">
-          <h2 className="font-playfair text-4xl font-bold mb-8 text-foreground drop-shadow-lg">Get In Touch</h2>
+          <h2 className="font-playfair text-3xl sm:text-4xl font-bold mb-6 sm:mb-8 text-foreground drop-shadow-lg">
+            Get In Touch
+          </h2>
 
           <ContactForm />
         </div>
       </section>
 
       {/* Footer */}
-      <footer className="py-16 px-4 sm:px-6 lg:px-8 border-t border-border/20">
+      <footer className="py-12 sm:py-16 px-4 sm:px-6 lg:px-8 border-t border-border/20">
         <div className="max-w-5xl mx-auto text-center">
           <p className="text-foreground/70 drop-shadow-sm">© 2025 Kavin Vasudevan. All rights reserved.</p>
         </div>
