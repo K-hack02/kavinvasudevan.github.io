@@ -53,7 +53,7 @@ jobs:
         with:
           node-version: "20"
           cache: ${{ steps.detect-package-manager.outputs.manager }}
-      - # name: Setup Pages
+      #- name: Setup Pages
         # uses: actions/configure-pages@v5
         # with:
           # Automatically inject basePath in your Next.js configuration file and disable
@@ -73,9 +73,9 @@ jobs:
             ${{ runner.os }}-nextjs-${{ hashFiles('**/package-lock.json', '**/yarn.lock') }}-
       - name: Install dependencies
         run: ${{ steps.detect-package-manager.outputs.manager }} ${{ steps.detect-package-manager.outputs.command }}
-      - # name: Build with Next.js
+      # - name: Build with Next.js
         # run: ${{ steps.detect-package-manager.outputs.runner }} next build
-        name: Build with Next.js (static export -> out/)
+      - name: Build with Next.js (static export -> out/)
         env:
           NEXT_PUBLIC_EMAILJS_SERVICE_ID: ${{ secrets.NEXT_PUBLIC_EMAILJS_SERVICE_ID }}
           NEXT_PUBLIC_EMAILJS_TEMPLATE_ID: ${{ secrets.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID }}
