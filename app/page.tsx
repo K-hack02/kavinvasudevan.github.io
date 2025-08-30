@@ -31,7 +31,7 @@ const projects = [
     description:
       "Developed STM32 firmware for the Powertrain Control Unit, processing accelerator and brake inputs via ADC with normalization, plausibility checks, and fault detection, then transmitting values over CAN for safe, real-time vehicle control.",
     icon: Cpu,
-    githubUrl: "https://github.com/K-hack02/Formula-Electric-Berkeley-SN4-Firmware/tree/main",
+    githubUrl: "https://github.com/k-hack02/powertrain-control-unit",
     isPrivate: false,
     badges: ["C", "STM32", "ADC", "CAN Bus", "UART"],
     features: [
@@ -46,7 +46,7 @@ const projects = [
     description:
       "Designed the dashboard firmware with I²C I/O handling, CAN decoding, and real-time UI updates, adding fault indicators (IMD, BMS) and a Ready-to-Drive buzzer synchronized with the BMS state machine.",
     icon: Cpu,
-    githubUrl: "https://github.com/K-hack02/Formula-Electric-Berkeley-SN4-Firmware/tree/main",
+    githubUrl: "https://github.com/k-hack02/driver-dashboard",
     isPrivate: false,
     badges: ["C", "STM32", "I²C", "CAN Bus", "SquareLine UI"],
     features: [
@@ -61,7 +61,7 @@ const projects = [
     description:
       "Implemented a circular buffer for high-throughput CAN logging, ensuring lossless real-time telemetry storage with minimal memory usage and providing persistent data for post-race analysis and debugging.",
     icon: Cpu,
-    githubUrl: "https://github.com/K-hack02/Formula-Electric-Berkeley-SN4-Firmware/tree/main",
+    githubUrl: "https://github.com/k-hack02/data-collection-unit",
     isPrivate: false,
     badges: ["C", "STM32", "CAN Bus", "SDIO", "SPI", "Xbee"],
     features: [
@@ -90,7 +90,7 @@ const projects = [
     description:
       "Developed a secure file-sharing platform in Go with user authentication, AES/RSA encryption, and revocable access control, enabling safe collaboration across multiple users.",
     icon: Database,
-    githubUrl: "https://github.com/K-hack02/Encrypted-File-Sharing-System",
+    githubUrl: "https://github.com/k-hack02/encrypted-file-sharing",
     isPrivate: true,
     badges: ["Go", "Cryptography (AES/RSA)", "HMAC"],
     features: [
@@ -105,7 +105,7 @@ const projects = [
     description:
       "Fine-tuned a BERT model to classify corporate sustainability statements as genuine or greenwashing, achieving 99% accuracy and highlighting linguistic markers that distinguish authentic impact from vague claims.",
     icon: Brain,
-    githubUrl: "https://github.com/K-hack02/CSR-Authenticity-Classification",
+    githubUrl: "https://github.com/k-hack02/csr-greenwashing-classifier",
     isPrivate: false,
     badges: ["Python", "PyTorch", "Transformers", "NLP"],
     features: [
@@ -120,7 +120,7 @@ const projects = [
     description:
       "Built a machine learning pipeline on FIA/WEC lap data, engineering features like start position and speed efficiency; trained Random Forest models achieving ~70% accuracy and an AUC of 0.82.",
     icon: Brain,
-    githubUrl: "https://github.com/K-hack02/WEC-Podium-Prediction-Model",
+    githubUrl: "https://github.com/k-hack02/fia-wec-predictor",
     isPrivate: false,
     badges: ["Python", "Scikit-learn", "Pandas", "Random Forest"],
     features: [
@@ -135,7 +135,7 @@ const projects = [
     description:
       "Implemented a nanoGPT-style Transformer in PyTorch to evaluate in-context morphological learning, training a 10M-parameter model that achieved 63.5% accuracy on validation tasks across 18 transformations.",
     icon: Brain,
-    githubUrl: "https://github.com/K-hack02/MorphoWug-In-Context-Morphology-Learning-with-Transformers",
+    githubUrl: "https://github.com/k-hack02/morphological-wug-test",
     isPrivate: false,
     badges: ["Python", "PyTorch", "nanoGPT", "Linguistics"],
     features: [
@@ -279,12 +279,16 @@ export default function Home() {
               </CardHeader>
               <CardContent>
                 <ul className="space-y-3 text-foreground/80 drop-shadow-sm">
-                  <li>
-                    • Integrated product images into an AWS ML pipeline, enabling 48% more categories and boosting
+                  <li className="ml-6 relative before:content-['•'] before:absolute before:-ml-6 before:text-foreground/80">
+                    Integrated product images into an AWS ML pipeline, enabling 48% more categories and boosting
                     accuracy by 4.3%
                   </li>
-                  <li>• Reduced model inference latency by 3× through smarter API calls and CI/CD optimizations</li>
-                  <li>• Lowered training costs with timeout/backoff tuning and synchronous data fetches</li>
+                  <li className="ml-6 relative before:content-['•'] before:absolute before:-ml-6 before:text-foreground/80">
+                    Reduced model inference latency by 3× through smarter API calls and CI/CD optimizations
+                  </li>
+                  <li className="ml-6 relative before:content-['•'] before:absolute before:-ml-6 before:text-foreground/80">
+                    Lowered training costs with timeout/backoff tuning and synchronous data fetches
+                  </li>
                 </ul>
               </CardContent>
             </Card>
@@ -311,17 +315,17 @@ export default function Home() {
               </CardHeader>
               <CardContent>
                 <ul className="space-y-3 text-foreground/80 drop-shadow-sm">
-                  <li>
-                    • Directed 15+ engineers on 10+ projects, delivering milestones early and ensuring subsystem
+                  <li className="ml-6 relative before:content-['•'] before:absolute before:-ml-6 before:text-foreground/80">
+                    Directed 15+ engineers on 10+ projects, delivering milestones early and ensuring subsystem
                     integration
                   </li>
-                  <li>
-                    • Built vehicle telemetry and safety pipelines: live data streaming, fault-handling, BMS state
+                  <li className="ml-6 relative before:content-['•'] before:absolute before:-ml-6 before:text-foreground/80">
+                    Built vehicle telemetry and safety pipelines: live data streaming, fault-handling, BMS state
                     machine, and startup logic
                   </li>
-                  <li>
-                    • Led hardware-in-the-loop (HIL) testing, speeding up debugging cycles and improving real-time
-                    system reliability
+                  <li className="ml-6 relative before:content-['•'] before:absolute before:-ml-6 before:text-foreground/80">
+                    Led hardware-in-the-loop (HIL) testing, speeding up debugging cycles and improving real-time system
+                    reliability
                   </li>
                 </ul>
               </CardContent>
@@ -349,17 +353,17 @@ export default function Home() {
               </CardHeader>
               <CardContent>
                 <ul className="space-y-3 text-foreground/80 drop-shadow-sm">
-                  <li>
-                    • Explored zero-shot vs. few-shot prompting for aviation record parsing, improving accuracy by 6%
-                    and cutting hallucinations by 13%
+                  <li className="ml-6 relative before:content-['•'] before:absolute before:-ml-6 before:text-foreground/80">
+                    Explored zero-shot vs. few-shot prompting for aviation record parsing, improving accuracy by 6% and
+                    cutting hallucinations by 13%
                   </li>
-                  <li>
-                    • Compared Microsoft Semantic Kernel vs. LangChain, identifying key incompatibilities and guiding
+                  <li className="ml-6 relative before:content-['•'] before:absolute before:-ml-6 before:text-foreground/80">
+                    Compared Microsoft Semantic Kernel vs. LangChain, identifying key incompatibilities and guiding
                     framework choice
                   </li>
-                  <li>
-                    • Designed custom evaluation metrics (Extraction Fidelity Score, Hallucination Rate) to benchmark
-                    LLM performance
+                  <li className="ml-6 relative before:content-['•'] before:absolute before:-ml-6 before:text-foreground/80">
+                    Designed custom evaluation metrics (Extraction Fidelity Score, Hallucination Rate) to benchmark LLM
+                    performance
                   </li>
                 </ul>
               </CardContent>
@@ -387,12 +391,16 @@ export default function Home() {
               </CardHeader>
               <CardContent>
                 <ul className="space-y-3 text-foreground/80 drop-shadow-sm">
-                  <li>
-                    • Guided middle and high school students in web, scripting, and block-based programming through
+                  <li className="ml-6 relative before:content-['•'] before:absolute before:-ml-6 before:text-foreground/80">
+                    Guided middle and high school students in web development, scripting, and block-based programming through
                     personalized projects
                   </li>
-                  <li>• Adapted teaching strategies using progress tracking and performance data</li>
-                  <li>• Maintained consistent communication with parents to support student growth</li>
+                  <li className="ml-6 relative before:content-['•'] before:absolute before:-ml-6 before:text-foreground/80">
+                    Adapted teaching strategies using progress tracking and performance data
+                  </li>
+                  <li className="ml-6 relative before:content-['•'] before:absolute before:-ml-6 before:text-foreground/80">
+                    Maintained consistent communication with parents to support student growth
+                  </li>
                 </ul>
               </CardContent>
             </Card>
@@ -419,7 +427,7 @@ export default function Home() {
                       </div>
                       <button
                         onClick={() => handleProjectClick(project)}
-                        className="text-primary hover:text-primary/80 transition-colors flex items-center gap-1"
+                        className="text-primary hover:text-primary/80 hover:bg-primary/30 rounded-md p-2 transition-all duration-200 flex items-center gap-1"
                         title={project.isPrivate ? "Request access to private repository" : "View on GitHub"}
                         disabled={!project.githubUrl}
                       >
@@ -439,7 +447,12 @@ export default function Home() {
                     </div>
                     <ul className="text-sm text-foreground/70 space-y-1 drop-shadow-sm">
                       {project.features.map((feature, index) => (
-                        <li key={index}>• {feature}</li>
+                        <li
+                          key={index}
+                          className="ml-6 relative before:content-['•'] before:absolute before:-ml-6 before:text-foreground/70"
+                        >
+                          {feature}
+                        </li>
                       ))}
                     </ul>
                   </CardContent>

@@ -13,8 +13,19 @@ export function DynamicBackground() {
   }, [])
 
   useEffect(() => {
-    const handleScroll = () => setScrollY(window.scrollY)
-    window.addEventListener("scroll", handleScroll)
+    let ticking = false
+
+    const handleScroll = () => {
+      if (!ticking) {
+        requestAnimationFrame(() => {
+          setScrollY(window.scrollY)
+          ticking = false
+        })
+        ticking = true
+      }
+    }
+
+    window.addEventListener("scroll", handleScroll, { passive: true })
     return () => window.removeEventListener("scroll", handleScroll)
   }, [])
 
@@ -34,9 +45,10 @@ export function DynamicBackground() {
           left: 0,
           backgroundImage: `url(${backgroundImage})`,
           backgroundSize: "contain",
-          backgroundPosition: "center top", // Changed to ensure image starts from top
-          transform: `translateY(${scrollY * -0.3}px)`,
+          backgroundPosition: "center top",
+          transform: `translate3d(0, ${scrollY * -0.15}px, 0)`,
           opacity: opacity,
+          willChange: "transform", // Added will-change for better performance
         }}
       />
       <div className="absolute inset-0 bg-gradient-to-b from-background/20 via-background/10 to-background/30" />

@@ -17,33 +17,41 @@ export function Navigation() {
   const [activeSection, setActiveSection] = useState("about")
 
   useEffect(() => {
+    let ticking = false
+
     const handleScroll = () => {
-      const sections = navItems.map((item) => item.href.slice(1))
-      const scrollPosition = window.scrollY + 100
+      if (!ticking) {
+        requestAnimationFrame(() => {
+          const sections = navItems.map((item) => item.href.slice(1))
+          const scrollPosition = window.scrollY + 100
 
-      const windowHeight = window.innerHeight
-      const documentHeight = document.documentElement.scrollHeight
-      const isNearBottom = scrollPosition + windowHeight >= documentHeight - 50
+          const windowHeight = window.innerHeight
+          const documentHeight = document.documentElement.scrollHeight
+          const isNearBottom = scrollPosition + windowHeight >= documentHeight - 50
 
-      // If we're near the bottom, always set contact as active
-      if (isNearBottom) {
-        setActiveSection("contact")
-        return
-      }
-
-      for (const section of sections) {
-        const element = document.getElementById(section)
-        if (element) {
-          const { offsetTop, offsetHeight } = element
-          if (scrollPosition >= offsetTop && scrollPosition < offsetTop + offsetHeight) {
-            setActiveSection(section)
-            break
+          if (isNearBottom) {
+            setActiveSection("contact")
+            ticking = false
+            return
           }
-        }
+
+          for (const section of sections) {
+            const element = document.getElementById(section)
+            if (element) {
+              const { offsetTop, offsetHeight } = element
+              if (scrollPosition >= offsetTop && scrollPosition < offsetTop + offsetHeight) {
+                setActiveSection(section)
+                break
+              }
+            }
+          }
+          ticking = false
+        })
+        ticking = true
       }
     }
 
-    window.addEventListener("scroll", handleScroll)
+    window.addEventListener("scroll", handleScroll, { passive: true })
     return () => window.removeEventListener("scroll", handleScroll)
   }, [])
 
