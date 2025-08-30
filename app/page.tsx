@@ -394,7 +394,7 @@ export default function Home() {
               <CardContent>
                 <ul className="space-y-3 text-foreground/80 drop-shadow-sm">
                   <li className="ml-6 relative before:content-['•'] before:absolute before:-ml-6 before:text-foreground/80">
-                    Guided middle and high school students in web, scripting, and block-based programming through
+                    Guided middle and high school students in web development, scripting, and block-based programming through
                     personalized projects
                   </li>
                   <li className="ml-6 relative before:content-['•'] before:absolute before:-ml-6 before:text-foreground/80">
