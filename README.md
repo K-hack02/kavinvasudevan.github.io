@@ -1,9 +1,9 @@
-# Stylish personal website
+# Personal website design
 
 *Automatically synced with your [v0.app](https://v0.app) deployments*
 
-[![Deployed on Vercel](https://img.shields.io/badge/Deployed%20on-Vercel-black?style=for-the-badge&logo=vercel)](https://vercel.com/reachkavin-9193s-projects/v0-stylish-personal-website)
-[![Built with v0](https://img.shields.io/badge/Built%20with-v0.app-black?style=for-the-badge)](https://v0.app/chat/projects/Dtk3UIgYn8m)
+[![Deployed on Vercel](https://img.shields.io/badge/Deployed%20on-Vercel-black?style=for-the-badge&logo=vercel)](https://vercel.com/reachkavin-9193s-projects/v0-personal-website-design)
+[![Built with v0](https://img.shields.io/badge/Built%20with-v0.app-black?style=for-the-badge)](https://v0.app/chat/projects/7Hm8uquV238)
 
 ## Overview
 
@@ -14,13 +14,13 @@ Any changes you make to your deployed app will be automatically pushed to this r
 
 Your project is live at:
 
-**[https://vercel.com/reachkavin-9193s-projects/v0-stylish-personal-website](https://vercel.com/reachkavin-9193s-projects/v0-stylish-personal-website)**
+**[https://vercel.com/reachkavin-9193s-projects/v0-personal-website-design](https://vercel.com/reachkavin-9193s-projects/v0-personal-website-design)**
 
 ## Build your app
 
 Continue building your app on:
 
-**[https://v0.app/chat/projects/Dtk3UIgYn8m](https://v0.app/chat/projects/Dtk3UIgYn8m)**
+**[https://v0.app/chat/projects/7Hm8uquV238](https://v0.app/chat/projects/7Hm8uquV238)**
 
 ## How It Works
 
