@@ -7,7 +7,12 @@ import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import { Label } from "@/components/ui/label"
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } from "@/components/ui/dialog"
-import { Lock, Github } from "lucide-react"
+import { Lock, Github, Loader2, AlertCircle } from "lucide-react"
+import emailjs from "@emailjs/browser"
+
+const SERVICE_ID = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID!
+const TEMPLATE_ID = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID!
+const PUBLIC_KEY = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY!
 
 interface AccessRequestModalProps {
   isOpen: boolean
@@ -24,30 +29,40 @@ export function AccessRequestModal({ isOpen, onClose, projectName, repositoryUrl
   })
 
   const [isSubmitted, setIsSubmitted] = useState(false)
+  const [isLoading, setIsLoading] = useState(false)
+  const [error, setError] = useState<string | null>(null)
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
+    setIsLoading(true)
+    setError(null)
 
-    // Create access request data
-    const accessRequest = {
-      type: "repository_access_request",
-      project: projectName,
-      repository: repositoryUrl,
-      requester: formData,
-      timestamp: new Date().toISOString(),
+    try {
+      await emailjs.send(
+        SERVICE_ID,
+        TEMPLATE_ID,
+        {
+          from_name: formData.name,
+          from_email: formData.email,
+          message: `Repository Access Request for: ${projectName}\n\nRepository URL: ${repositoryUrl}\n\nReason: ${formData.reason}`,
+          to_name: "Kavin Vasudevan",
+          subject: `Access Request: ${projectName}`,
+        },
+        PUBLIC_KEY,
+      )
+
+      setIsSubmitted(true)
+      setTimeout(() => {
+        setIsSubmitted(false)
+        setFormData({ name: "", email: "", reason: "" })
+        onClose()
+      }, 3000)
+    } catch (err) {
+      console.error("EmailJS error:", err)
+      setError("Failed to send access request. Please try again.")
+    } finally {
+      setIsLoading(false)
     }
-
-    // This can be connected to your preferred form handling service
-    console.log("Access request submitted:", accessRequest)
-
-    setIsSubmitted(true)
-
-    // Reset form after 3 seconds and close modal
-    setTimeout(() => {
-      setIsSubmitted(false)
-      setFormData({ name: "", email: "", reason: "" })
-      onClose()
-    }, 3000)
   }
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -55,6 +70,25 @@ export function AccessRequestModal({ isOpen, onClose, projectName, repositoryUrl
       ...prev,
       [e.target.name]: e.target.value,
     }))
+  }
+
+  if (error) {
+    return (
+      <Dialog open={isOpen} onOpenChange={onClose}>
+        <DialogContent className="sm:max-w-md">
+          <div className="text-center py-6">
+            <div className="mx-auto flex items-center justify-center w-12 h-12 rounded-full bg-destructive/10 mb-4">
+              <AlertCircle className="h-6 w-6 text-destructive" />
+            </div>
+            <h3 className="text-lg font-semibold text-foreground mb-2">Request Failed</h3>
+            <p className="text-foreground/70 mb-4">{error}</p>
+            <Button onClick={() => setError(null)} variant="outline">
+              Try Again
+            </Button>
+          </div>
+        </DialogContent>
+      </Dialog>
+    )
   }
 
   if (isSubmitted) {
@@ -143,9 +177,17 @@ export function AccessRequestModal({ isOpen, onClose, projectName, repositoryUrl
             </Button>
             <Button
               type="submit"
-              className="flex-1 bg-gradient-to-r from-primary to-accent hover:from-primary/90 hover:to-accent/90 text-primary-foreground font-medium transition-all duration-200"
+              disabled={isLoading}
+              className="flex-1 bg-gradient-to-r from-primary to-accent hover:from-primary/90 hover:to-accent/90 text-primary-foreground font-medium transition-all duration-200 disabled:opacity-50"
             >
-              Request Access
+              {isLoading ? (
+                <>
+                  <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                  Sending...
+                </>
+              ) : (
+                "Request Access"
+              )}
             </Button>
           </div>
         </form>

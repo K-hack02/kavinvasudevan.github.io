@@ -22,7 +22,7 @@ export function DynamicBackground() {
     return null
   }
 
-  const backgroundImage = theme === "dark" ? "/images/dark-mountain.jpg" : "/images/light-sunrise.jpg"
+  const backgroundImage = theme === "dark" ? "images/dark-mountain.jpg" : "images/light-sunrise.jpg"
   const opacity = theme === "dark" ? 0.8 : 0.9
 
   return (
