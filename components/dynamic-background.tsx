@@ -4,7 +4,7 @@ import { useTheme } from "next-themes"
 import { useEffect, useState } from "react"
 
 export function DynamicBackground() {
-  const { theme } = useTheme()
+  const { theme, resolvedTheme } = useTheme()
   const [mounted, setMounted] = useState(false)
   const [scrollY, setScrollY] = useState(0)
   const [isMobile, setIsMobile] = useState(false)
@@ -40,8 +40,9 @@ export function DynamicBackground() {
     return null
   }
 
-  const backgroundImage = theme === "dark" ? "images/dark-mountain.jpg" : "images/light-sunrise.jpg"
-  const opacity = theme === "dark" ? 0.8 : 0.9
+  const currentTheme = resolvedTheme || theme
+  const backgroundImage = currentTheme === "dark" ? "images/dark-mountain.jpg" : "images/light-sunrise.jpg"
+  const opacity = currentTheme === "dark" ? 0.8 : 0.9
 
   return (
     <div className="fixed inset-0 -z-10 overflow-hidden">
