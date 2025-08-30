@@ -7,9 +7,16 @@ export function DynamicBackground() {
   const { theme } = useTheme()
   const [mounted, setMounted] = useState(false)
   const [scrollY, setScrollY] = useState(0)
+  const [isMobile, setIsMobile] = useState(false)
 
   useEffect(() => {
     setMounted(true)
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768)
+    }
+    checkMobile()
+    window.addEventListener("resize", checkMobile)
+    return () => window.removeEventListener("resize", checkMobile)
   }, [])
 
   useEffect(() => {
@@ -39,16 +46,17 @@ export function DynamicBackground() {
   return (
     <div className="fixed inset-0 -z-10 overflow-hidden">
       <div
-        className="absolute w-full h-[400vh] bg-center bg-no-repeat"
+        className="absolute w-full bg-center bg-no-repeat"
         style={{
           top: 0,
           left: 0,
+          height: isMobile ? "600vh" : "400vh",
           backgroundImage: `url(${backgroundImage})`,
-          backgroundSize: "contain",
-          backgroundPosition: "center top",
-          transform: `translate3d(0, ${scrollY * -0.15}px, 0)`,
+          backgroundSize: isMobile ? "cover" : "contain",
+          backgroundPosition: isMobile ? "center center" : "center top",
+          transform: `translate3d(0, ${scrollY * (isMobile ? -0.05 : -0.15)}px, 0)`,
           opacity: opacity,
-          willChange: "transform", // Added will-change for better performance
+          willChange: "transform",
         }}
       />
       <div className="absolute inset-0 bg-gradient-to-b from-background/20 via-background/10 to-background/30" />
