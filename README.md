@@ -49,7 +49,7 @@ It is fully responsive, mobile-friendly, and deployed using **GitHub Pages**.
 
 The website is deployed at:
 
-**[https://k-hack02.github.io/kavinvasudevan.github.io/](https://k-hack02.github.io/)**
+**[https://k-hack02.github.io/kavinvasudevan.github.io/](https://k-hack02.github.io/kavinvasudevan.github.io/)**
 
 ## Local Development
 
